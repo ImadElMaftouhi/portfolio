@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" width="600" height="480">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12121a"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6c63ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00d4aa" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="480" fill="url(#bg2)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#2a2a38" stroke-width="0.5" opacity="0.5">
+    <line x1="0" y1="120" x2="600" y2="120"/>
+    <line x1="0" y1="240" x2="600" y2="240"/>
+    <line x1="0" y1="360" x2="600" y2="360"/>
+    <line x1="150" y1="0" x2="150" y2="480"/>
+    <line x1="300" y1="0" x2="300" y2="480"/>
+    <line x1="450" y1="0" x2="450" y2="480"/>
+  </g>
+
+  <!-- Silhouette -->
+  <g filter="blur(0.5px)">
+    <circle cx="300" cy="180" r="70" fill="none" stroke="url(#accent2)" stroke-width="2.5"/>
+    <path d="M 180 440 Q 180 290 300 290 Q 420 290 420 440 Z" fill="none" stroke="url(#accent2)" stroke-width="2.5"/>
+  </g>
+
+  <!-- Corner brackets -->
+  <g stroke="#6c63ff" stroke-width="2" fill="none">
+    <path d="M 30 30 L 30 60 M 30 30 L 60 30"/>
+    <path d="M 570 30 L 570 60 M 570 30 L 540 30"/>
+    <path d="M 30 450 L 30 420 M 30 450 L 60 450"/>
+    <path d="M 570 450 L 570 420 M 570 450 L 540 450"/>
+  </g>
+
+  <text x="300" y="465" text-anchor="middle" fill="#6a6a7a" font-family="monospace" font-size="12" opacity="0.6">[ ABOUT IMAGE PLACEHOLDER ]</text>
+</svg>

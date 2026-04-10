@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imad El Maftouhi — AI & ML Engineer</title>
+  <meta name="description" content="Portfolio of Imad El Maftouhi — AI/ML Engineer specializing in end-to-end system design, computer vision, and distributed data systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#hero" class="nav__logo">IEM</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="nav__cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <canvas id="particleCanvas"></canvas>
+    </div>
+    <div class="hero__content">
+      <p class="hero__greeting">Hello, I'm</p>
+      <h1 class="hero__name">Imad El Maftouhi</h1>
+      <p class="hero__title">AI & Machine Learning Engineer</p>
+      <p class="hero__subtitle">Designing end-to-end AI systems — from data ingestion to deployment</p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary">View Projects</a>
+        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+      </div>
+      <div class="hero__social">
+        <a href="https://github.com/ImadElMaftouhi" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/imad-el-maftouhi" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://huggingface.co/Imad404" target="_blank" rel="noopener" aria-label="Hugging Face">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm3 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8.5 14.5s1 2 3.5 2 3.5-2 3.5-2"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <a href="#about" aria-label="Scroll down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section__title">About Me</h2>
+      <div class="about__grid">
+        <div class="about__text">
+          <p>Final-year Master's student in <strong>Artificial Intelligence and Data Science</strong> at FST Tanger (Top 3 of cohort), with a strong foundation spanning machine learning engineering, data infrastructure, distributed systems, optimization, and applied AI.</p>
+          <p>My approach is strongly oriented toward <strong>end-to-end system design</strong> — I design and implement the full lifecycle of AI solutions, from data ingestion and preprocessing to model integration, deployment, and decision support interfaces.</p>
+          <p>My work places me closer to <strong>ML engineering and applied AI systems development</strong> than to isolated model experimentation.</p>
+        </div>
+        <div class="about__details">
+          <div class="about__card">
+            <span class="about__card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <h4>Location</h4>
+              <p>Tangier, Morocco</p>
+            </div>
+          </div>
+          <div class="about__card">
+            <span class="about__card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/></svg>
+            </span>
+            <div>
+              <h4>Education</h4>
+              <p>MSc AI & Data Science</p>
+            </div>
+          </div>
+          <div class="about__card">
+            <span class="about__card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </span>
+            <div>
+              <h4>Languages</h4>
+              <p>Arabic, French, English</p>
+            </div>
+          </div>
+          <div class="about__card">
+            <span class="about__card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </span>
+            <div>
+              <h4>Rank</h4>
+              <p>Top 3 — Master's Cohort</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <h2 class="section__title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline__item" data-animate>
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <span class="timeline__date">Feb 2026 — Present</span>
+            <h3>AI & Data Science Intern</h3>
+            <h4>Yazaki Morocco Business Support Center, Tangier</h4>
+            <ul>
+              <li>Computer vision system for detecting cargo boxes, estimating spatial utilization inside trucks/containers, and analyzing loading efficiency</li>
+              <li>Predictive modeling system for manufacturing demand forecasting and production scheduling</li>
+            </ul>
+            <div class="timeline__tags">
+              <span>Computer Vision</span><span>Demand Forecasting</span><span>Deep Learning</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__item" data-animate>
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <span class="timeline__date">Apr 2024 — Jun 2024</span>
+            <h3>Data & ML Engineering Intern</h3>
+            <h4>Smart Automation Technologies, Tangier</h4>
+            <ul>
+              <li>Built intelligent ERP platform using Django & React, reducing manual workflow by 35%</li>
+              <li>Designed data pipelines to synchronize ERP modules with MongoDB</li>
+              <li>Implemented recommendation system for resource allocation optimization</li>
+            </ul>
+            <div class="timeline__tags">
+              <span>Django</span><span>React</span><span>MongoDB</span><span>ML</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__item" data-animate>
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <span class="timeline__date">Mar 2024 — Apr 2024</span>
+            <h3>Machine Learning Intern</h3>
+            <h4>CodSoft (Remote)</h4>
+            <ul>
+              <li>Developed supervised classification models (RandomForest, SVM, Logistic Regression)</li>
+              <li>Built end-to-end ML workflows: preprocessing, feature engineering, training, evaluation</li>
+            </ul>
+            <div class="timeline__tags">
+              <span>Scikit-learn</span><span>Python</span><span>ML Pipelines</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__item" data-animate>
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <span class="timeline__date">Aug 2023 — Oct 2023</span>
+            <h3>Data & Warehouse Analyst Intern</h3>
+            <h4>Entreprise Automobile SIS, Al Hoceima</h4>
+            <ul>
+              <li>Analyzed inventory data for 10,000+ automotive parts</li>
+              <li>Developed reporting frameworks improving warehouse efficiency by 15%</li>
+            </ul>
+            <div class="timeline__tags">
+              <span>SQL</span><span>Data Analysis</span><span>Reporting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section__title">Projects</h2>
+      <div class="projects__filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="data">Big Data</button>
+        <button class="filter-btn" data-filter="cv">Computer Vision</button>
+        <button class="filter-btn" data-filter="web">Full Stack</button>
+      </div>
+      <div class="projects__grid">
+
+        <article class="project-card" data-category="ml">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+          </div>
+          <h3>Graph-Based Bankruptcy Prediction</h3>
+          <p>Modeled corporate failure risk via Node2Vec embeddings on inter-firm networks. Evaluated structural impact of graph topology on predictive performance.</p>
+          <div class="project-card__stack">
+            <span>Python</span><span>Node2Vec</span><span>Graph ML</span><span>Scikit-learn</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ml">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>IoT Botnet Detection via GNNs</h3>
+          <p>Implemented Graph Neural Networks to detect malicious activity on IoT network traffic. Comparative analysis of message-passing vs. classical baselines.</p>
+          <div class="project-card__stack">
+            <span>PyTorch</span><span>GNNs</span><span>Python</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="cv">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3>Multimedia Content Retrieval</h3>
+          <p>Multimodal search engine combining visual descriptors and view-based 3D representations. Optimized vector similarity search using FAISS indexing.</p>
+          <div class="project-card__stack">
+            <span>FAISS</span><span>Computer Vision</span><span>3D Descriptors</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="cv">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Lung Radiograph AI Diagnostic</h3>
+          <p>CNN for automated pneumonia detection on chest X-rays achieving 92% accuracy. Integrated Grad-CAM for clinical interpretability.</p>
+          <div class="project-card__stack">
+            <span>PyTorch</span><span>CNN</span><span>Transfer Learning</span><span>Grad-CAM</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Low-Code ML Platform</h3>
+          <p>Full-stack web platform enabling no-code ML model creation and deployment, reducing development time by 60%. Real-time training visualization.</p>
+          <div class="project-card__stack">
+            <span>Django</span><span>React</span><span>TensorFlow</span><span>MongoDB</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="data">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Real-Time Review Analysis Pipeline</h3>
+          <p>Big Data pipeline for real-time sentiment analysis on Amazon review streams. Sub-2-second per-message latency with MLlib-based distributed ML.</p>
+          <div class="project-card__stack">
+            <span>Kafka</span><span>Spark</span><span>PySpark</span><span>Docker</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ml">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Multi-Agent Asthma Diagnosis</h3>
+          <p>JADE-based multi-agent diagnostic system achieving 85% accuracy. Integrated Fuzzy C-Means clustering and Naive Bayes classification.</p>
+          <div class="project-card__stack">
+            <span>JADE</span><span>Weka</span><span>Java</span><span>Fuzzy C-Means</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="data">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          </div>
+          <h3>BI Dashboard & ETL Pipeline</h3>
+          <p>End-to-end BI solution: SQL Server to Power BI via SSIS ETL pipelines, DAX-based KPI development, and interactive dashboards.</p>
+          <div class="project-card__stack">
+            <span>Power BI</span><span>SQL Server</span><span>SSIS</span><span>DAX</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ml">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>Decision Tree from Scratch</h3>
+          <p>Complete decision tree classifier in pure Python. Shannon entropy, information gain, automatic optimal split point detection. Tested on Titanic dataset.</p>
+          <div class="project-card__stack">
+            <span>Python</span><span>From Scratch</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="data">
+          <div class="project-card__header">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3>SMACK Stack Big Data Pipeline</h3>
+          <p>Distributed architecture integrating Spark, Mesos, Akka, Cassandra, and Kafka. Real-time streaming, distributed computation, and event-driven processing.</p>
+          <div class="project-card__stack">
+            <span>Spark</span><span>Kafka</span><span>Cassandra</span><span>Akka</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section__title">Skills & Technologies</h2>
+      <div class="skills__grid">
+        <div class="skill-group" data-animate>
+          <h3>ML & Data Science</h3>
+          <div class="skill-group__tags">
+            <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>Keras</span>
+            <span>Scikit-learn</span><span>NumPy</span><span>Pandas</span><span>SciPy</span>
+            <span>Matplotlib</span><span>Seaborn</span><span>Plotly</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>Big Data & Distributed</h3>
+          <div class="skill-group__tags">
+            <span>Apache Spark</span><span>Kafka</span><span>Hadoop</span>
+            <span>Scala</span><span>Java</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>Databases & Storage</h3>
+          <div class="skill-group__tags">
+            <span>PostgreSQL</span><span>MongoDB</span><span>Cassandra</span>
+            <span>MySQL</span><span>SQL Server</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>Infrastructure & DevOps</h3>
+          <div class="skill-group__tags">
+            <span>Docker</span><span>Kubernetes</span><span>Linux/WSL</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>Systems & Low-Level</h3>
+          <div class="skill-group__tags">
+            <span>C</span><span>C++</span><span>Rust</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>Web Development</h3>
+          <div class="skill-group__tags">
+            <span>Django</span><span>Flask</span><span>React</span><span>RESTful APIs</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>Analytics & Visualization</h3>
+          <div class="skill-group__tags">
+            <span>Power BI</span><span>Tableau</span><span>R</span><span>DAX</span><span>SSIS</span>
+          </div>
+        </div>
+        <div class="skill-group" data-animate>
+          <h3>AI Specializations</h3>
+          <div class="skill-group__tags">
+            <span>Graph Neural Networks</span><span>Computer Vision</span>
+            <span>NLP</span><span>Transfer Learning</span><span>XAI (Grad-CAM)</span>
+            <span>Multi-Agent Systems</span><span>Metaheuristics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section education" id="education">
+    <div class="container">
+      <h2 class="section__title">Education</h2>
+      <div class="edu__grid">
+        <div class="edu-card" data-animate>
+          <div class="edu-card__accent"></div>
+          <span class="edu-card__date">2024 — 2026</span>
+          <h3>Master: AI & Data Science</h3>
+          <h4>FST Tanger, Univ. Abdelmalek Essaadi</h4>
+          <p class="edu-card__rank">Rank: Top 3</p>
+          <p>Deep & Transfer Learning, Distributed Systems & Big Data, Multi-Agent Systems & NLP, Cloud & Edge Computing, Blockchain & Security</p>
+        </div>
+        <div class="edu-card" data-animate>
+          <div class="edu-card__accent"></div>
+          <span class="edu-card__date">2021 — 2024</span>
+          <h3>Licence ST: Data Analytics</h3>
+          <h4>FST Tanger</h4>
+          <p class="edu-card__rank">Rank: Top 10</p>
+          <p>Data Analysis & Mining, Data Engineering, Advanced Algorithms, Web Development, Systems & Networks</p>
+        </div>
+        <div class="edu-card" data-animate>
+          <div class="edu-card__accent"></div>
+          <span class="edu-card__date">2020 — 2021</span>
+          <h3>Tronc Commun: MIP</h3>
+          <h4>FST Tanger</h4>
+          <p>Real Analysis, Linear Algebra, Algorithmics, Data Structures in C, Physics, Chemistry</p>
+        </div>
+        <div class="edu-card" data-animate>
+          <div class="edu-card__accent"></div>
+          <span class="edu-card__date">2020</span>
+          <h3>Baccalaureate — Physical Sciences</h3>
+          <h4>Lycee Abi Yacoub Al Badissi, Al Hoceima</h4>
+          <p class="edu-card__rank">Mention Tres Bien — Top 5</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section__title">Get in Touch</h2>
+      <p class="contact__intro">Interested in collaborating or have an opportunity? Let's connect.</p>
+      <div class="contact__grid">
+        <a href="mailto:imad.elmaft.wrk@gmail.com" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <h3>Email</h3>
+          <p>imad.elmaft.wrk@gmail.com</p>
+        </a>
+        <a href="https://linkedin.com/in/imad-el-maftouhi" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <h3>LinkedIn</h3>
+          <p>imad-el-maftouhi</p>
+        </a>
+        <a href="https://github.com/ImadElMaftouhi" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <h3>GitHub</h3>
+          <p>ImadElMaftouhi</p>
+        </a>
+        <a href="https://huggingface.co/Imad404" target="_blank" rel="noopener" class="contact-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 7a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm3 0a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8.5 14.5s1 2 3.5 2 3.5-2 3.5-2"/></svg>
+          <h3>Hugging Face</h3>
+          <p>Imad404</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Imad El Maftouhi. Built with purpose.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,3 +1,95 @@
+// ===== Scroll Progress Bar =====
+const scrollProgress = document.getElementById('scrollProgress');
+
+function updateScrollProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  scrollProgress.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
+}
+
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+window.addEventListener('resize', updateScrollProgress);
+updateScrollProgress();
+
+// ===== Text Scramble Effect =====
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#$%&abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    this.queue = [];
+    this.frame = 0;
+    this.frameRequest = null;
+    this.resolve = null;
+    this.update = this.update.bind(this);
+  }
+
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise((resolve) => (this.resolve = resolve));
+    this.queue = [];
+
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40) + 15;
+      this.queue.push({ from, to, start, end, char: null });
+    }
+
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+
+  update() {
+    let output = '';
+    let complete = 0;
+
+    for (let i = 0; i < this.queue.length; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar();
+          this.queue[i].char = char;
+        }
+        output += `<span class="scramble-char">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+
+    this.el.innerHTML = output;
+
+    if (complete === this.queue.length) {
+      this.resolve && this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }
+}
+
+// Run scramble on the hero name after initial fade-in
+const scrambleEl = document.querySelector('[data-scramble]');
+if (scrambleEl) {
+  const finalText = scrambleEl.dataset.scramble;
+  // Start empty-ish so the scramble has something to reveal
+  scrambleEl.innerText = ' '.repeat(finalText.length);
+  const scrambler = new TextScramble(scrambleEl);
+  // Give the fadeUp animation a moment, then scramble in
+  setTimeout(() => scrambler.setText(finalText), 600);
+}
+
 // ===== Custom Cursor =====
 const cursor = document.getElementById('cursor');
 const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;

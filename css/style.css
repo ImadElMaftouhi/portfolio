@@ -40,6 +40,20 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.5);
+  z-index: 9998;
+  transition: width 0.1s ease-out;
+  will-change: width;
+}
+
 /* ===== Custom Cursor ===== */
 .cursor {
   position: fixed;
@@ -322,6 +336,13 @@ img { max-width: 100%; display: block; }
   background-clip: text;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 0.4s;
+  min-height: 1.1em;
+}
+
+.hero__name .scramble-char {
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+  opacity: 0.85;
 }
 
 .hero__title {

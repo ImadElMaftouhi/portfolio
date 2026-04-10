@@ -40,6 +40,69 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== Custom Cursor ===== */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor { display: block; }
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor input,
+  body.has-custom-cursor textarea {
+    cursor: none;
+  }
+}
+
+.cursor__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+.cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.cursor.is-hover .cursor__dot {
+  width: 0;
+  height: 0;
+}
+
+.cursor.is-hover .cursor__ring {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #fff;
+}
+
+.cursor.is-click .cursor__ring {
+  width: 24px;
+  height: 24px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -663,22 +726,61 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
+  perspective: 1000px;
 }
 
 .project-card {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
-  transition: all var(--transition);
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  will-change: transform;
+}
+
+/* Glare effect layer */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: radial-gradient(
+    circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card.is-tilting::before {
+  opacity: 1;
 }
 
 .project-card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(108, 99, 255, 0.2);
+}
+
+/* Lift inner content for parallax illusion */
+.project-card > * {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(20px);
+}
+
+.project-card.is-tilting .project-card__header {
+  transform: translateZ(40px);
+}
+
+.project-card.is-tilting h3 {
+  transform: translateZ(30px);
 }
 
 .project-card.hidden {

@@ -1,3 +1,85 @@
+// ===== Custom Cursor =====
+const cursor = document.getElementById('cursor');
+const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+if (supportsHover && cursor) {
+  document.body.classList.add('has-custom-cursor');
+
+  let cursorX = 0, cursorY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    cursorX = e.clientX;
+    cursorY = e.clientY;
+    // Dot follows instantly
+    cursor.querySelector('.cursor__dot').style.transform =
+      `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+  });
+
+  // Ring lags behind slightly for a smooth trailing feel
+  function updateRing() {
+    ringX += (cursorX - ringX) * 0.18;
+    ringY += (cursorY - ringY) * 0.18;
+    cursor.querySelector('.cursor__ring').style.transform =
+      `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(updateRing);
+  }
+  updateRing();
+
+  // Hover state on interactive elements
+  const hoverables = 'a, button, .project-card, .skill-group, .contact-card, .about__card, [role="button"]';
+  document.querySelectorAll(hoverables).forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+  });
+
+  document.addEventListener('mousedown', () => cursor.classList.add('is-click'));
+  document.addEventListener('mouseup', () => cursor.classList.remove('is-click'));
+
+  // Hide when leaving viewport
+  document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
+  document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
+}
+
+// ===== 3D Tilt for Project Cards =====
+if (supportsHover) {
+  const MAX_TILT = 10; // degrees
+  const tiltCards = document.querySelectorAll('.project-card');
+
+  tiltCards.forEach(card => {
+    let rect = null;
+
+    card.addEventListener('mouseenter', () => {
+      rect = card.getBoundingClientRect();
+      card.classList.add('is-tilting');
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      if (!rect) rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const px = x / rect.width;   // 0 to 1
+      const py = y / rect.height;  // 0 to 1
+
+      const rotateY = (px - 0.5) * MAX_TILT * 2;
+      const rotateX = -(py - 0.5) * MAX_TILT * 2;
+
+      card.style.transform =
+        `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+
+      // Glare follows the cursor
+      card.style.setProperty('--glare-x', `${px * 100}%`);
+      card.style.setProperty('--glare-y', `${py * 100}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('is-tilting');
+      card.style.transform = '';
+      rect = null;
+    });
+  });
+}
+
 // ===== Navigation =====
 const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
